@@ -11,19 +11,21 @@
             <TextBlock FontSize="80" TextWrapping="WrapWholeWords" Margin="12.48">Universal Test App</TextBlock>
             <TextBlock FontSize="28" Margin="12" Text="Your Items"/>
             <ListView x:Name="ItemsView" ItemsSource="{Binding ItemModels}" BorderBrush="Transparent" 
-                      Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Stretch">
-                <DataTemplate>
-                    <Grid Margin="4">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Name}" FontWeight="Bold"  />
-                        <TextBox Grid.Column="1" Text="{Binding Date}"/>
-                        <TextBox Grid.Column="2" Text="{Binding Description}"/>
-                    </Grid>
-                </DataTemplate>
+                      HorizontalContentAlignment="Stretch">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Name}" />
+                            <TextBlock Grid.Column="1" Text="{Binding Date}"/>
+                            <TextBlock Grid.Column="2" Text="{Binding Description}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate> 
             </ListView>
         </StackPanel>
     </Grid>
