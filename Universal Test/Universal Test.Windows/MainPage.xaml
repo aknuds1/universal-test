@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="100">
             <TextBlock FontSize="80" TextWrapping="WrapWholeWords" Margin="12.48">Universal Test App</TextBlock>
-            <TextBlock FontSize="28" Margin="12" Text="Hello you!"/>
+            <TextBlock FontSize="28" Margin="12" Text="Your Items"/>
             <ListView x:Name="ItemsView"/>
         </StackPanel>
     </Grid>
