@@ -2,7 +2,6 @@
     x:Class="Universal_Test.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Universal_Test"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -11,7 +10,21 @@
         <StackPanel Margin="100">
             <TextBlock FontSize="80" TextWrapping="WrapWholeWords" Margin="12.48">Universal Test App</TextBlock>
             <TextBlock FontSize="28" Margin="12" Text="Your Items"/>
-            <ListView x:Name="ItemsView"/>
+            <ListView x:Name="ItemsView" ItemsSource="{Binding ItemModels}" BorderBrush="Transparent" 
+                      Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Stretch">
+                <DataTemplate>
+                    <Grid Margin="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold"  />
+                        <TextBox Grid.Column="1" Text="{Binding Date}"/>
+                        <TextBox Grid.Column="2" Text="{Binding Description}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView>
         </StackPanel>
     </Grid>
 </Page>
