@@ -6,10 +6,6 @@ namespace Universal_Test
 {
     class ItemModel
     {
-        private string v1;
-        private string v2;
-        private string v3;
-
         public ItemModel(string name, string date, string description)
         {
             Name = name;

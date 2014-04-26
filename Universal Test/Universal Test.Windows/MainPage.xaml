@@ -16,13 +16,24 @@
                     <DataTemplate>
                         <Grid Margin="4">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
+                                <!--<ColumnDefinition Width="Auto" />-->
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Name}" />
-                            <TextBlock Grid.Column="1" Text="{Binding Date}"/>
-                            <TextBlock Grid.Column="2" Text="{Binding Description}"/>
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.ColumnSpan="3" FontSize="11" Text="{Binding Date}" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Name}" />
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text=": " />
+                                <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Description}" />
+                            </Grid>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate> 
