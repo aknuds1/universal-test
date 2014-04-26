@@ -16,10 +16,11 @@
                     <DataTemplate>
                         <Grid Margin="4">
                             <Grid.ColumnDefinitions>
-                                <!--<ColumnDefinition Width="Auto" />-->
+                                <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0">
+                            <SymbolIcon Grid.Column="0" VerticalAlignment="Top" Margin="6 0" Symbol="Comment"/>
+                            <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
@@ -31,8 +32,12 @@
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Row="0" Grid.ColumnSpan="3" FontSize="11" Text="{Binding Date}" />
                                 <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Name}" />
-                                <TextBlock Grid.Row="1" Grid.Column="1" Text=": " />
-                                <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Description}" />
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text=":&#160;" />
+                                <TextBlock Grid.Row="1" Grid.Column="2">
+                                    <Hyperlink NavigateUri="{Binding ItemUri}">
+                                        <Run Text="{Binding Description}"></Run>
+                                    </Hyperlink>
+                                </TextBlock>
                             </Grid>
                         </Grid>
                     </DataTemplate>
