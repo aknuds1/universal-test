@@ -31,7 +31,8 @@ namespace Universal_Test
                 return _itemModels ?? (_itemModels = new List<ItemModel>
                 {
                     new ItemModel("Item 1", "25.04.2014", "Description 1", new Uri("http://example.com")),
-                    new ItemModel("Item 2", "25.04.2014", "Description 2", new Uri("http://example.com"))
+                    new ItemModel("Item 2", "25.04.2014", "Description 2", new Uri("http://example.com")),
+                    new ItemModel("Item 3", "26.04.2014", "Description 3", new Uri("http://example.com"))
                 });
             }
             set
