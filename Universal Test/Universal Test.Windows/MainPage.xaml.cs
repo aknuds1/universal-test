@@ -24,8 +24,13 @@ namespace Universal_Test
     {
         public MainPage()
         {   
-            this.InitializeComponent();
-            this.DataContext = new ViewModel();
+            InitializeComponent();
+            DataContext = new ViewModel();
+        }
+
+        private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

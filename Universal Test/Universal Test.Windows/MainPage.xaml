@@ -7,6 +7,62 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="140"/>-->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Horizontal scrolling grid -->
+        <GridView
+            x:Name="ItemGridView"
+            AutomationProperties.AutomationId="ItemsGridView"
+            AutomationProperties.Name="Items"
+            TabIndex="1"
+            Padding="116,136,116,46"
+            ItemsSource="{Binding ItemModels}"
+            SelectionMode="None"
+            IsSwipeEnabled="false"
+            IsItemClickEnabled="True"
+            ItemClick="ItemView_ItemClick">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Left" Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <SymbolIcon Grid.Column="0" VerticalAlignment="Top" Margin="6 0" Symbol="Comment"/>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" FontSize="11" Text="{Binding Date}" />
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Name}" />
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text=":&#160;" />
+                            <TextBlock Grid.Row="1" Grid.Column="2">
+                                <Hyperlink NavigateUri="{Binding ItemUri}">
+                                    <Run Text="{Binding Description}"></Run>
+                                </Hyperlink>
+                            </TextBlock>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+
+    <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="100">
             <TextBlock FontSize="80" TextWrapping="WrapWholeWords" Margin="12.48">Universal Test App</TextBlock>
             <TextBlock FontSize="28" Margin="12" Text="Your Items"/>
@@ -44,5 +100,5 @@
                 </ListView.ItemTemplate> 
             </ListView>
         </StackPanel>
-    </Grid>
+    </Grid>-->
 </Page>
